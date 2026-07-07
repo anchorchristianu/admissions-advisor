@@ -54,7 +54,8 @@ admissions-advisor/
 │   └── inputs/
 │       └── transcript-distillation.md     ← STUB: conversational-rhythm source input
 └── prompts/
-    └── system-prompt.md          ← STUB: composed prompt that assembles the three layers
+    ├── system-prompt.md              ← DRAFT: full production prompt (voice-complete; guardrails/KB injected)
+    └── system-prompt.variables.md    ← how the runtime injection variables are assembled
 ```
 
 ## Status & next steps
@@ -64,7 +65,7 @@ admissions-advisor/
 - [ ] Fill in the **knowledge base** with approved, sourced facts (`docs/knowledge-base/knowledge-base.md`).
 - [ ] Fill in the **transcript distillation** (`docs/inputs/transcript-distillation.md`).
 - [ ] Resolve every open item in [`VERIFY.md`](VERIFY.md).
-- [ ] Compose the production **system prompt** (`prompts/system-prompt.md`) once the layers are populated.
+- [x] Draft the production **system prompt** from the voice layer (`prompts/system-prompt.md`) — voice-complete; awaits guardrail/KB injection before it can ship.
 - [ ] Wire the composed prompt into a runnable bot (application layer — out of scope for this pass).
 
 > 🚧 **Stub files** describe the shape of the content they will hold and mark every unknown with a
