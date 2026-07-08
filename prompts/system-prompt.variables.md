@@ -6,10 +6,16 @@ Assemble the final prompt by replacing each `{{VARIABLE}}` with content from the
 
 | Variable | Replace with | Source layer | Status |
 |---|---|---|---|
-| `{{GUARDRAIL_POLICY}}` | The full may-say / hand-off / never-state rules, verbatim | [`docs/guardrails/guardrail-taxonomy.md`](../docs/guardrails/guardrail-taxonomy.md) | 🚧 stub |
 | `{{KNOWLEDGE_BASE}}` | The approved, sourced facts the bot may state (only the confirmed slots) | [`docs/knowledge-base/knowledge-base.md`](../docs/knowledge-base/knowledge-base.md) | 🚧 stub |
-| `{{HANDOFF_CHANNEL}}` | How a hand-off actually reaches a human (form, email, scheduler) + what context is passed | ops / integration | ❌ undefined |
-| `{{ESTIMATOR_TOOL}}` | Name + link of the preliminary credit-estimate tool (voice spec §9) | KB / [`/VERIFY.md`](../VERIFY.md) #13 | 🚧 stub |
+| `{{HANDOFF_CHANNEL}}` | How a hand-off (D4) actually reaches a human (warm async packet by default; live handoff if the staff toggle is on) + what context is passed | ops / integration | ❌ undefined |
+| `{{ESTIMATOR_TOOL}}` | Name + link of the preliminary-estimate tool for D3 (transcript-eval / PLA; voice spec §9) | KB / [`/VERIFY.md`](../VERIFY.md) #13 | 🚧 stub |
+
+> **Guardrails are no longer an injection variable.** The full decision procedure (dispositions D1–D5,
+> the spine, category routing, the faith block, and the pre-send self-check) is inlined directly in
+> `system-prompt.md`, because the taxonomy's §F specifies instruction-based enforcement at this scale. The
+> governed source of record remains [`docs/guardrails/guardrail-taxonomy.md`](../docs/guardrails/guardrail-taxonomy.md);
+> keep the two in sync when the taxonomy is versioned. The taxonomy's §E testing harness (innocent / pushy /
+> reframed-to-sound-safe probes) is QA, not prompt content — run it against the assembled prompt before ship.
 
 ## Assembly rules
 
